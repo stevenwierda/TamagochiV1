@@ -20,7 +20,21 @@
         <activity android:name=".Shower">
             <intent-filter>
                 <action android:name="android.intent.action.Shower"/>
-                
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Walk">
+            <intent-filter>
+                <action android:name="android.intent.action.Walk"/>
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Play">
+            <intent-filter>
+                <action android:name="android.intent.action.Play"/>
+
             </intent-filter>
         </activity>
     </application>

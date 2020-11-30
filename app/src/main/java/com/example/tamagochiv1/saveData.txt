@@ -1,1 +1,0 @@
-PetAlive = 0

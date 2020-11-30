@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(goToWalk)
         }
 
-
+        goToFoodButton.setOnClickListener{
+            val goToFeeding = Intent(this, Feeding::class.java)
+            startActivity(goToFeeding)
+        }
     }
 }
