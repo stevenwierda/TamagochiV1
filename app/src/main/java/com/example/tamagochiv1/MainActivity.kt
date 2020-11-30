@@ -19,7 +19,15 @@ class MainActivity : AppCompatActivity() {
         val body = findViewById<ImageView>(R.id.Body)
 
         goToShowerButton.setOnClickListener{
-            Intent goToShower = Intent(this, Shower())
+            val goToShower = Intent(this, Shower::class.java)
+            startActivity(goToShower)
         }
+
+        goToWalkButton.setOnClickListener{
+            val goToWalk = Intent(this, Walk::class.java)
+            startActivity(goToWalk)
+        }
+
+
     }
 }

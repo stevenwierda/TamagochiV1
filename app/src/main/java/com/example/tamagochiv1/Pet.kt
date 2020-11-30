@@ -2,7 +2,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import java.time.LocalDateTime
 
-@RequiresApi(Build.VERSION_CODES.O)
 class Pet(name: String, skin: String) {
      private var name: String = "Name";
      private var happiness: Int = 20;
@@ -11,10 +10,8 @@ class Pet(name: String, skin: String) {
      private var hygiene: Int = 20;
      private var hitpoints : Int = 100;
      private var skin: String = "Boxie";
-     private var age: Date;
 
      init{
-          this.age = LocalDateTime.now();
           this.name = name;
           this.skin = skin;
      }
