@@ -11,10 +11,10 @@ class Pet(name: String, skin: String) {
      private var hygiene: Int = 20;
      private var hitpoints : Int = 100;
      private var skin: String = "Boxie";
-     private var age: Date;
+//     private var age: null;
 
      init{
-          this.age = LocalDateTime.now();
+//          this.age = LocalDateTime.now();
           this.name = name;
           this.skin = skin;
      }
@@ -36,6 +36,7 @@ class Pet(name: String, skin: String) {
      }
 
      public fun setHygiene(hygiene: Int){
+//          setHappyness(((getHappyness() + 10) * 0.4).toInt())
           this.hygiene = hygiene
      }
 
@@ -56,7 +57,7 @@ class Pet(name: String, skin: String) {
      }
 
      public fun getHunger() :Int{
-          return (this.energy)
+          return (this.hunger)
      }
 
      public fun getEnergy() :Int{
@@ -73,5 +74,11 @@ class Pet(name: String, skin: String) {
 
      public fun getSkin() :String{
           return (this.skin)
+     }
+
+     public fun addHappiness(add : Int){
+          if((this.happiness+add) > this.happiness) {
+               this.happiness = this.happiness + add
+          }
      }
 }
