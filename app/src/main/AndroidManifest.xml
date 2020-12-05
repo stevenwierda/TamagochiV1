@@ -31,12 +31,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Play">
+        <activity android:name=".CreatePet">
             <intent-filter>
-                <action android:name="android.intent.action.Play"/>
+                <action android:name="android.intent.action.CreatePet"/>
 
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

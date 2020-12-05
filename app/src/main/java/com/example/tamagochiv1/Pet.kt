@@ -1,8 +1,9 @@
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.io.Serializable
 import java.time.LocalDateTime
 
-class Pet(name: String, skin: String) {
+class Pet(name: String, skin: String): Serializable{
      private var name: String = "Name";
      private var happiness: Int = 20;
      private var hunger: Int = 20
