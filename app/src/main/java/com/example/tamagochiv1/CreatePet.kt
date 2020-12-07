@@ -13,6 +13,7 @@ class CreatePet: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pet_create)
+        var movement :Boolean = false
         var skin = "boxy"
         val nameBox = findViewById<EditText>(R.id.PetNameInputBox)
         val skinSelection = findViewById<SeekBar>(R.id.SkinSelect)
@@ -29,15 +30,16 @@ class CreatePet: AppCompatActivity() {
              }
 
         }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
+                movement = true
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
+                movement = false
             }
         })
-        skinSelection.setMax(2)
+        skinSelection.setMax(1)
         val pet = Pet(nameBox.toString(), skin)
     }
 }
