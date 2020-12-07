@@ -2,11 +2,10 @@ package com.example.tamagochiv1
 
 import Pet
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.SeekBar
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import java.io.FileOutputStream
+import java.io.ObjectOutputStream
 
 
 class CreatePet: AppCompatActivity() {
@@ -18,13 +17,14 @@ class CreatePet: AppCompatActivity() {
         val nameBox = findViewById<EditText>(R.id.PetNameInputBox)
         val skinSelection = findViewById<SeekBar>(R.id.SkinSelect)
         val bodyPetImage = findViewById<ImageView>(R.id.BodyPetCreate)
+        val saveButton = findViewById<Button>(R.id.SaveButton)
         skinSelection.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(skinSelection: SeekBar?, progress: Int, fromUser: Boolean) {
-             if(progress == 1){
+             if(progress == 0){
                 bodyPetImage.setImageResource(R.drawable.petbodytransbackground)
                 skin = "boxy"
              }
-             else if(progress == 2){
+             else if(progress == 1){
                  bodyPetImage.setImageResource(R.drawable.bunny)
                  skin = "bunny"
              }
@@ -40,6 +40,14 @@ class CreatePet: AppCompatActivity() {
             }
         })
         skinSelection.setMax(1)
-        val pet = Pet(nameBox.toString(), skin)
+        saveButton.setOnClickListener{
+            val pet = Pet(nameBox.toString(), skin)
+            val saveFile = FileOutputStream("petsave.txt")
+            val outStream = ObjectOutputStream(saveFile)
+
+            outStream.writeObject(pet)
+            outStream.close()
+            saveFile.close()
+        }
     }
 }
