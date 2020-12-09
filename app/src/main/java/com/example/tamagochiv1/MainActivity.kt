@@ -15,9 +15,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val petFileName = "petSaveData.txt"
-        val petSaveFile = File("petSaveData.txt")
-        if (!petSaveFile.exists()){
+        
+        if (){
             val goToCreatePet = Intent(this, CreatePet::class.java)
             startActivity(goToCreatePet)
         }

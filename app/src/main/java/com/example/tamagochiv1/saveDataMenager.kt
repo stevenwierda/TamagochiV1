@@ -37,7 +37,4 @@ class saveDataMenager(context: Context) {
         return saveData.getFloat(key, 0)
     }
 
-    fun putObject(key: String, value: Object){
-
-    }
 }

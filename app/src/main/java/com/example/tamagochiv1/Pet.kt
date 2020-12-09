@@ -1,7 +1,4 @@
-import android.os.Build
-import androidx.annotation.RequiresApi
 import java.io.Serializable
-import java.time.LocalDateTime
 
 class Pet(name: String, skin: String): Serializable{
      private var name: String = "Name";
@@ -34,6 +31,7 @@ class Pet(name: String, skin: String): Serializable{
      }
 
      public fun setHygiene(hygiene: Int){
+     //          setHappyness(((getHappyness() + 10) * 0.4).toInt())
           this.hygiene = hygiene
      }
 
@@ -54,7 +52,7 @@ class Pet(name: String, skin: String): Serializable{
      }
 
      public fun getHunger() :Int{
-          return (this.energy)
+          return (this.hunger)
      }
 
      public fun getEnergy() :Int{
@@ -72,4 +70,11 @@ class Pet(name: String, skin: String): Serializable{
      public fun getSkin() :String{
           return (this.skin)
      }
+
+     public fun addHappiness(add : Int){
+          if((this.happiness+add) > this.happiness) {
+               this.happiness = this.happiness + add
+          }
+     }
+}
 }
