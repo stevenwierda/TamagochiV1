@@ -19,6 +19,10 @@ class Pet(name: String, skin: String) {
           this.skin = skin;
      }
 
+// --------------------------------------------------------------------- //
+// -------------------------------- SET -------------------------------- //
+// --------------------------------------------------------------------- //
+
      public fun setName(name: String){
           this.name = name;
      }
@@ -36,7 +40,6 @@ class Pet(name: String, skin: String) {
      }
 
      public fun setHygiene(hygiene: Int){
-//          setHappyness(((getHappyness() + 10) * 0.4).toInt())
           this.hygiene = hygiene
      }
 
@@ -48,11 +51,14 @@ class Pet(name: String, skin: String) {
           this.skin = skin
      }
 
+// --------------------------------------------------------------------- //
+// -------------------------------- GET -------------------------------- //
+// --------------------------------------------------------------------- //
      public fun getName() :String{
           return(this.name)
      }
 
-     public fun getHappyness() :Int{
+     public fun getHappiness() :Int{
           return (this.happiness)
      }
 
@@ -76,9 +82,71 @@ class Pet(name: String, skin: String) {
           return (this.skin)
      }
 
+// --------------------------------------------------------------------- //
+// -------------------------------- ADD -------------------------------- //
+// --------------------------------------------------------------------- //
      public fun addHappiness(add : Int){
-          if((this.happiness+add) > this.happiness) {
+          if((this.happiness+add) > 100) {
                this.happiness = this.happiness + add
           }
      }
+
+     public fun addHunger (add : Int) {
+          if((this.hunger+add) > 100) {
+               this.hunger = this.hunger + add
+          }
+     }
+
+     public fun addEnergy (add : Int) {
+          if((this.energy+add) > 100) {
+               this.energy = this.energy + add
+          }
+     }
+
+     public fun addHygiene (add : Int) {
+          if((this.hygiene+add) > 100) {
+               this.hygiene = this.hygiene + add
+          }
+     }
+
+     public fun addHitpoints (add : Int) {
+          if((this.hitpoints+add) > 100) {
+               this.hitpoints = this.hitpoints + add
+          }
+     }
+
+// --------------------------------------------------------------------- //
+// -------------------------------- SUB -------------------------------- //
+// --------------------------------------------------------------------- //
+
+     public fun subHappiness(sub : Int){
+          if((this.happiness - sub) < 0) {
+               this.happiness = this.happiness - sub
+          }
+     }
+
+     public fun subHunger (sub : Int) {
+          if((this.hunger - sub) > 0) {
+               this.hunger = this.hunger - sub
+          }
+     }
+
+     public fun subEnergy (sub : Int) {
+          if((this.energy - sub) > 0) {
+               this.energy = this.energy - sub
+          }
+     }
+
+     public fun subHygiene (sub : Int) {
+          if((this.hygiene - sub) > 0) {
+               this.hygiene = this.hygiene - sub
+          }
+     }
+
+     public fun subHitpoints (sub : Int) {
+          if((this.hitpoints - sub) > 0) {
+               this.hitpoints = this.hitpoints - sub
+          }
+     }
+
 }
