@@ -34,36 +34,34 @@ class MainActivity : AppCompatActivity() {
         val progress_energy = findViewById<ProgressBar>(R.id.progress_energy)
         val progress_hitpoints = findViewById<ProgressBar>(R.id.progress_hitpoints)
 
-        fun update () {
-            progress_happiness.setProgress(pet.getHappyness(), true)
+        fun update_progress_bars () {
+            progress_happiness.setProgress(pet.getHappiness(), true)
             progress_hunger.setProgress(pet.getHunger(), true)
             progress_hygiene.setProgress(pet.getHygiene(), true)
             progress_energy.setProgress(pet.getEnergy(), true)
             progress_hitpoints.setProgress(pet.getHitpoints(), true)
         }
 
-        update();
+        update_progress_bars();
 
         goToShowerButton.setOnClickListener{
-            pet.setHygiene(100)
-            update()
+            pet.addHygiene(100);
+            update_progress_bars()
         }
 
         goToWalkButton.setOnClickListener {
-            update()
-//            Toast.makeText(applicationContext,pet.getName(),Toast.LENGTH_SHORT).show(}
+            pet.subHygiene(10)
+            pet.subEnergy(20)
+            pet.addHappiness((100 - pet.getEnergy()) / 3)
+            update_progress_bars()
         }
 
 
         goToFoodButton.setOnClickListener {
-            pet.setHunger(pet.getHunger() + 25)
-            update()
-//            Toast.makeText(applicationContext,pet.getSkin(),Toast.LENGTH_SHORT).show()
+            pet.addHunger(25)
+            pet.addHappiness((100 - pet.getHunger()) / 3)
+            update_progress_bars()
         }
-
-
-
-
 
     }
 
