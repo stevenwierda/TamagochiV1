@@ -42,12 +42,7 @@ class CreatePet: AppCompatActivity() {
         skinSelection.setMax(1)
         saveButton.setOnClickListener{
             val pet = Pet(nameBox.toString(), skin)
-            val saveFile = FileOutputStream("petsave.txt")
-            val outStream = ObjectOutputStream(saveFile)
 
-            outStream.writeObject(pet)
-            outStream.close()
-            saveFile.close()
         }
     }
 }

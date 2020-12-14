@@ -1,26 +1,17 @@
 package com.example.tamagochiv1
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
-import java.io.File
-import java.io.FileOutputStream
-import java.io.ObjectOutputStream
-import java.nio.file.Files.exists
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        
-        if (){
-            val goToCreatePet = Intent(this, CreatePet::class.java)
-            startActivity(goToCreatePet)
-        }
-        else{
+        val saveDataMenager = SaveDataManager(context: Context)
+        val petAlive = saveDataMenager.getBoolean("petAlive")
+        if (petAlive){
             setContentView(R.layout.activity_main)
 
             val goToShowerButton = findViewById<ImageButton>(R.id.goToShowerButton)
@@ -43,6 +34,10 @@ class MainActivity : AppCompatActivity() {
                 val goToFeeding = Intent(this, Feeding::class.java)
                 startActivity(goToFeeding)
             }
+        }
+        else{
+            val goToCreatePet = Intent(this, CreatePet::class.java)
+            startActivity(goToCreatePet)
         }
     }
 }

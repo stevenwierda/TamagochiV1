@@ -2,7 +2,7 @@ package com.example.tamagochiv1
 
 import android.content.Context
 
-class saveDataMenager(context: Context) {
+class SaveDataManager(context: Context) {
     private val saveData = context.getSharedPreferences("saveData", 0)
 
     fun putBoolean(key: String, value: Boolean){
