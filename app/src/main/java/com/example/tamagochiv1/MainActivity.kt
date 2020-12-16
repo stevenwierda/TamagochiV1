@@ -8,6 +8,9 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 
+import android.graphics.PorterDuff;
+import android.graphics.Color;
+
 import Pet;
 import android.os.Build
 import android.widget.ProgressBar
@@ -34,6 +37,14 @@ class MainActivity : AppCompatActivity() {
         val progress_energy = findViewById<ProgressBar>(R.id.progress_energy)
         val progress_hitpoints = findViewById<ProgressBar>(R.id.progress_hitpoints)
 
+        progress_happiness.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN);
+        progress_hunger.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN);
+        progress_hygiene.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN);
+        progress_energy.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN);
+        progress_hitpoints.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN);
+
+
+
         fun update_progress_bars () {
             progress_happiness.setProgress(pet.getHappiness(), true)
             progress_hunger.setProgress(pet.getHunger(), true)
@@ -45,7 +56,8 @@ class MainActivity : AppCompatActivity() {
         update_progress_bars();
 
         goToShowerButton.setOnClickListener{
-            pet.addHygiene(100);
+            pet.addHygiene(100)
+            face.setImageResource(R.drawable.petface_sad)
             update_progress_bars()
         }
 
@@ -53,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             pet.subHygiene(10)
             pet.subEnergy(20)
             pet.addHappiness((100 - pet.getEnergy()) / 3)
+            face.setImageResource(R.drawable.petface_love)
             update_progress_bars()
         }
 
@@ -60,8 +73,12 @@ class MainActivity : AppCompatActivity() {
         goToFoodButton.setOnClickListener {
             pet.addHunger(25)
             pet.addHappiness((100 - pet.getHunger()) / 3)
+            face.setImageResource(R.drawable.petface_hungry)
             update_progress_bars()
         }
+
+        val intent = Intent(this, ServiceHandler::class.java)
+        startService(intent)
 
     }
 
