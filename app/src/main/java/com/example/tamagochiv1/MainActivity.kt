@@ -1,5 +1,6 @@
 package com.example.tamagochiv1
 
+import Pet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +10,7 @@ import android.widget.ImageView
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val saveDataMenager = SaveDataManager(context: Context)
+        val saveDataMenager = SaveDataManager(this@MainActivity)
         val petAlive = saveDataMenager.getBoolean("petAlive")
         if (petAlive){
             setContentView(R.layout.activity_main)
@@ -39,5 +40,16 @@ class MainActivity : AppCompatActivity() {
             val goToCreatePet = Intent(this, CreatePet::class.java)
             startActivity(goToCreatePet)
         }
+    }
+    fun saveData(pet:Pet){
+        val saveDataMenager = SaveDataManager(this@MainActivity)
+        saveDataMenager.putString("name", pet.getName())
+        saveDataMenager.putString("skin", pet.getSkin())
+        saveDataMenager.putInt("happiness", pet.getHappyness())
+        saveDataMenager.putInt("hunger", pet.getHunger())
+        saveDataMenager.putInt("energy", pet.getEnergy())
+        saveDataMenager.putInt("hygiene", pet.getHygiene())
+        saveDataMenager.putInt("hitpoints", pet.getHitpoints())
+        saveDataMenager.putBoolean("petAlive", true)
     }
 }

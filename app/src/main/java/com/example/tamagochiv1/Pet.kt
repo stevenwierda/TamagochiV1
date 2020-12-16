@@ -1,3 +1,6 @@
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import com.example.tamagochiv1.CreatePet
 import com.example.tamagochiv1.SaveDataManager
 import java.io.Serializable
 
@@ -78,15 +81,5 @@ class Pet(name: String, skin: String): Serializable{
           }
      }
 
-     public fun saveData(){
-          val saveDataMenager = SaveDataManager()
-          saveDataMenager.putString("name", this.name)
-          saveDataMenager.putString("skin", this.skin)
-          saveDataMenager.putInt("happiness", this.happiness)
-          saveDataMenager.putInt("hunger", this.hunger)
-          saveDataMenager.putInt("energy", this.energy)
-          saveDataMenager.putInt("hygiene", this.hygiene)
-          saveDataMenager.putInt("hitpoints", this.hitpoints)
-          saveDataMenager.putBoolean("petAlive", true)
-     }
+
 }

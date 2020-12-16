@@ -78,4 +78,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SkinSelect" />
 
+    <ImageView
+        android:id="@+id/facePetCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/BodyPetCreate"
+        app:layout_constraintEnd_toEndOf="@+id/BodyPetCreate"
+        app:layout_constraintStart_toStartOf="@+id/BodyPetCreate"
+        app:layout_constraintTop_toTopOf="@+id/BodyPetCreate"
+        app:srcCompat="@drawable/petface_happy" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

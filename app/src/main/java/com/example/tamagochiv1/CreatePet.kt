@@ -17,15 +17,18 @@ class CreatePet: AppCompatActivity() {
         val nameBox = findViewById<EditText>(R.id.PetNameInputBox)
         val skinSelection = findViewById<SeekBar>(R.id.SkinSelect)
         val bodyPetImage = findViewById<ImageView>(R.id.BodyPetCreate)
+        val facePetImage = findViewById<ImageView>(R.id.facePetCreate)
         val saveButton = findViewById<Button>(R.id.SaveButton)
         skinSelection.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(skinSelection: SeekBar?, progress: Int, fromUser: Boolean) {
              if(progress == 0){
                 bodyPetImage.setImageResource(R.drawable.petbodytransbackground)
+                 facePetImage.setImageResource(R.drawable.petface_happy)
                 skin = "boxy"
              }
              else if(progress == 1){
                  bodyPetImage.setImageResource(R.drawable.bunny)
+                 facePetImage.setImageResource(R.drawable.bunny_happy)
                  skin = "bunny"
              }
 
@@ -42,7 +45,15 @@ class CreatePet: AppCompatActivity() {
         skinSelection.setMax(1)
         saveButton.setOnClickListener{
             val pet = Pet(nameBox.toString(), skin)
-
+            val saveDataMenager = SaveDataManager(this@CreatePet)
+            saveDataMenager.putString("name", pet.getName())
+            saveDataMenager.putString("skin", pet.getSkin())
+            saveDataMenager.putInt("happiness", pet.getHappyness())
+            saveDataMenager.putInt("hunger", pet.getHunger())
+            saveDataMenager.putInt("energy", pet.getEnergy())
+            saveDataMenager.putInt("hygiene", pet.getHygiene())
+            saveDataMenager.putInt("hitpoints", pet.getHitpoints())
+            saveDataMenager.putBoolean("petAlive", true)
         }
     }
 }
