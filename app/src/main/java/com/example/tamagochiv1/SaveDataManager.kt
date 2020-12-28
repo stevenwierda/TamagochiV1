@@ -34,7 +34,7 @@ class SaveDataManager(context: Context) {
     }
 
     fun getFloat(key: String): Float{
-        return saveData.getFloat(key, 0)
+        return saveData.getFloat(key, 0.0F)
     }
 
 }

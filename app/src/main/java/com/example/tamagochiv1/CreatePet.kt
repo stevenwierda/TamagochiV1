@@ -1,6 +1,7 @@
 package com.example.tamagochiv1
 
 import Pet
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -24,11 +25,13 @@ class CreatePet: AppCompatActivity() {
              if(progress == 0){
                 bodyPetImage.setImageResource(R.drawable.petbodytransbackground)
                  facePetImage.setImageResource(R.drawable.petface_happy)
+                 facePetImage.layout(10,16,10, 0)
                 skin = "boxy"
              }
              else if(progress == 1){
                  bodyPetImage.setImageResource(R.drawable.bunny)
                  facePetImage.setImageResource(R.drawable.bunny_happy)
+                 facePetImage.layout(10,1,16, 16)
                  skin = "bunny"
              }
 
@@ -54,6 +57,8 @@ class CreatePet: AppCompatActivity() {
             saveDataMenager.putInt("hygiene", pet.getHygiene())
             saveDataMenager.putInt("hitpoints", pet.getHitpoints())
             saveDataMenager.putBoolean("petAlive", true)
+            val goToMainMenu = Intent(this,  MainActivity::class.java)
+            startActivity(goToMainMenu)
         }
     }
 }

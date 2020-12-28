@@ -64,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PetNameInputBox"
-        app:srcCompat="@drawable/petbodytransbackground" />
+        app:srcCompat="@drawable/bunny" />
 
     <Button
         android:id="@+id/SaveButton"
@@ -82,10 +82,17 @@
         android:id="@+id/facePetCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/BodyPetCreate"
         app:layout_constraintEnd_toEndOf="@+id/BodyPetCreate"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="@+id/BodyPetCreate"
         app:layout_constraintTop_toTopOf="@+id/BodyPetCreate"
-        app:srcCompat="@drawable/petface_happy" />
+        app:layout_constraintVertical_bias="0.19"
+        app:srcCompat="@drawable/bunny_happy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
