@@ -66,6 +66,6 @@
         app:layout_constraintEnd_toEndOf="@+id/Body"
         app:layout_constraintStart_toStartOf="@+id/Body"
         app:layout_constraintTop_toTopOf="@+id/Body"
-        app:srcCompat="@drawable/petface_hungry" />
+        app:srcCompat="@drawable/petface_love" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
