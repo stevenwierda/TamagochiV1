@@ -33,17 +33,17 @@ class Walk : AppCompatActivity() {
     }
 
     private fun checkPermission(): Boolean {
-        return (ActivityCompat.checkSelfPermission(
-            this,
-            android.Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-                || ActivityCompat.checkSelfPermission(
-            this,
-            android.Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED)
+        if (
+                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        ) {
+            return true
+        }
+
+        return false
     }
 
-    private fun requestPermission() {
+        private fun requestPermission() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
