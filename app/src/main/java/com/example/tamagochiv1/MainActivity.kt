@@ -1,12 +1,10 @@
 package com.example.tamagochiv1
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
 
 import android.graphics.PorterDuff;
 import android.graphics.Color;
@@ -23,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pet = Pet("Diezel", "jiejkl");
+
 
         val goToShowerButton = findViewById<ImageButton>(R.id.goToShowerButton)
         val goToWalkButton = findViewById<ImageButton>(R.id.goToWalkButton)
@@ -77,11 +76,11 @@ class MainActivity : AppCompatActivity() {
             update_progress_bars()
         }
 
-        val intent = Intent(this, ServiceHandler::class.java)
-        startService(intent)
+
+        Intent(this, ServiceHandler::class.java).also { intent ->
+            startService(intent)
+        }
+
 
     }
-
-
-
 }
