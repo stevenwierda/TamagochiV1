@@ -27,4 +27,25 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:srcCompat="@drawable/petface_fun" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="279dp"
+        android:layout_height="218dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="112dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:srcCompat="@drawable/rect843" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="225dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="36dp"
+        android:text="we hebben al 0 van de 5 km gelopen!"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
