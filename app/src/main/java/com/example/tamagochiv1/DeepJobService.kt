@@ -7,8 +7,12 @@ import android.os.AsyncTask
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.example.tamagochiv1.noti.NotificationHelper
 
 const val SAVED_INT_KEY = "int_key";
+var notificationId = 200
 
 // Small play code for JobSchedulers
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -17,6 +21,12 @@ class DeepJobService : JobService() {
     lateinit var params: JobParameters
     lateinit var task: CounterTask
     var TAG = DeepJobService::class.java.simpleName
+
+    override fun onCreate() {
+        super.onCreate()
+
+        NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, "ServiceHandler", "Background ServiceHandler")
+    }
 
     // Whenever the contraints are satisfied this will get fired.
     override fun onStartJob(params: JobParameters?): Boolean {
@@ -48,6 +58,13 @@ class DeepJobService : JobService() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun notifyJobFinished() {
         Log.d(DeepJobService::class.java.simpleName,"Job finished. Calling jobFinished()")
+
+        notificationId += 1
+
+        Log.d(TAG, notificationId.toString())
+
+        NotificationHelper.sendNotification(this, notificationId,"Service", "JobService done", notificationId.toString(), false)
+
         val prefs = getSharedPreferences("deep_service", Context.MODE_PRIVATE)
         // Try to fetch a preference.
         prefs.edit().putInt(SAVED_INT_KEY,0).apply()
@@ -62,7 +79,7 @@ class DeepJobService : JobService() {
      * which has been already printed from previous onStartJob() calls.
      */
     class CounterTask(private val params: DeepJobService, var startInt: Int) : AsyncTask<Unit,Int,Unit>() {
-        private val LIMIT = 100
+        private val LIMIT = 1
         private var start = 0
 
         override fun onPreExecute() {

@@ -1,10 +1,9 @@
-package com.example.tamagochiv1
+package com.example.tamagochiv1.services
 
 import android.app.job.JobParameters
 import android.app.job.JobService
 import android.os.AsyncTask
 import android.os.Build
-import android.os.PersistableBundle
 import android.os.SystemClock
 import android.util.Log
 import androidx.annotation.RequiresApi
