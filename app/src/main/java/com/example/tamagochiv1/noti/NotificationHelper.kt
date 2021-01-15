@@ -31,9 +31,9 @@ object NotificationHelper  {
         }
     }
 
-    fun sendNotification(context: Context, id: Int, title: String, message: String, bigText: String, autoCancel: Boolean) {
+    fun sendNotification(context: Context, id: Int, channelId: String, title: String, message: String, bigText: String, autoCancel: Boolean) {
 
-        val channelId = "${context.packageName}-${context.getString(R.string.app_name)}"
+        val channelId = "${context.packageName}-${channelId}"
 
         val notificationBuilder = NotificationCompat.Builder(context, channelId).apply {
             setSmallIcon(R.drawable.ic_launcher_foreground)

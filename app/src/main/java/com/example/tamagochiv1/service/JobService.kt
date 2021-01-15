@@ -1,4 +1,4 @@
-package com.example.tamagochiv1.services
+package com.example.tamagochiv1.service
 
 import android.app.job.JobParameters
 import android.app.job.JobService

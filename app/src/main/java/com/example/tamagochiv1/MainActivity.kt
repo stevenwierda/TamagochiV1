@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pet = Pet("Diezel", "jiejkl")
-        NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, getString(R.string.app_name), "App notification channel")
+        NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, CHANNEL_ID, "App notification channel")
 
 
         val goToShowerButton = findViewById<ImageButton>(R.id.goToShowerButton)
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             pet.addHygiene(100)
             face.setImageResource(R.drawable.petface_sad)
             update_progress_bars()
-            NotificationHelper.sendNotification(this, 100,"Hello", "Öbject", "BIG TEXT??", false)
+            NotificationHelper.sendNotification(this, notificationId, CHANNEL_ID,"Hello", "Öbject", "BIG TEXT??", false)
         }
 
         goToWalkButton.setOnClickListener {

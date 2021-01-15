@@ -22,10 +22,12 @@ class DeepJobService : JobService() {
     lateinit var task: CounterTask
     var TAG = DeepJobService::class.java.simpleName
 
+    var CHANNEL_ID = "ServiceHandler";
+
     override fun onCreate() {
         super.onCreate()
 
-        NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, "ServiceHandler", "Background ServiceHandler")
+        NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, CHANNEL_ID, "Background ServiceHandler")
     }
 
     // Whenever the contraints are satisfied this will get fired.
@@ -63,7 +65,7 @@ class DeepJobService : JobService() {
 
         Log.d(TAG, notificationId.toString())
 
-        NotificationHelper.sendNotification(this, notificationId,"Service", "JobService done", notificationId.toString(), false)
+        NotificationHelper.sendNotification(this, notificationId, CHANNEL_ID,"Service", "JobService done", notificationId.toString(), false)
 
         val prefs = getSharedPreferences("deep_service", Context.MODE_PRIVATE)
         // Try to fetch a preference.
