@@ -18,6 +18,7 @@ import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationManagerCompat
 import com.example.tamagochiv1.noti.NotificationHelper
+import com.example.tamagochiv1.noti.AlarmScheduler
 
 class MainActivity : AppCompatActivity() {
 
@@ -78,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             pet.addHappiness((100 - pet.getEnergy()) / 3)
             face.setImageResource(R.drawable.petface_love)
             update_progress_bars()
+            AlarmScheduler.createAlarm(this, 60)
         }
 
 

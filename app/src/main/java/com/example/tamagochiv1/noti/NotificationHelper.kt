@@ -8,9 +8,9 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.tamagochiv1.MainActivity
 import com.example.tamagochiv1.R
-import com.example.tamagochiv1.notificationId
 
 object NotificationHelper  {
 
@@ -54,18 +54,4 @@ object NotificationHelper  {
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(id, notificationBuilder.build())
     }
-
-//        // create the pet notification
-//        val notificationBuilder = buildNotificationForPet(context, reminderData)
-//
-//        // add an action to the pet notification
-//        val administerPendingIntent = createPendingIntentForAction(context, reminderData)
-//        notificationBuilder.addAction(R.drawable.baseline_done_black_24, context.getString(R.string.administer), administerPendingIntent)
-//
-//        // call notify for both the group and the pet notification
-//        val notificationManager = NotificationManagerCompat.from(context)
-//        notificationManager.notify(reminderData.type.ordinal, groupBuilder.build())
-//        notificationManager.notify(reminderData.id, notificationBuilder.build())
-//    }
-
 }
