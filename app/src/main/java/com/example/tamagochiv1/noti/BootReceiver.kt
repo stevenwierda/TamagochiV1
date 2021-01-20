@@ -12,6 +12,8 @@ class BootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         if (context != null && intent?.action.equals("android.intent.action.BOOT_COMPLETED")) {
+            AlarmScheduler.createAlarm(context, 1)
+
             Log.d(TAG, "BOOTCOMPLETE: " + Date().toString())
         }
     }

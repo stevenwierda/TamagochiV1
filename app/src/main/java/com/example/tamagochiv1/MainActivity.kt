@@ -8,11 +8,7 @@ import android.widget.ImageView
 import android.graphics.PorterDuff;
 import android.graphics.Color;
 
-import Pet;
-import android.app.job.JobInfo
-import android.app.job.JobScheduler
-import android.content.ComponentName
-import android.content.Context
+import Pet
 import android.os.Build
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
@@ -79,7 +75,6 @@ class MainActivity : AppCompatActivity() {
             pet.addHappiness((100 - pet.getEnergy()) / 3)
             face.setImageResource(R.drawable.petface_love)
             update_progress_bars()
-            AlarmScheduler.createAlarm(this, 1)
         }
 
 
@@ -100,10 +95,6 @@ class MainActivity : AppCompatActivity() {
 //                .build();
 //
 //        jobScheduler.schedule(job)
-
-
-
-
 
     }
 }

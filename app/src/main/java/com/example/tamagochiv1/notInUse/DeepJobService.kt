@@ -1,4 +1,4 @@
-package com.example.tamagochiv1
+package com.example.tamagochiv1.notInUse
 
 import android.app.job.JobParameters
 import android.app.job.JobService
