@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             pet.addHappiness((100 - pet.getEnergy()) / 3)
             face.setImageResource(R.drawable.petface_love)
             update_progress_bars()
-            AlarmScheduler.createAlarm(this, 60)
+            AlarmScheduler.createAlarm(this, 1)
         }
 
 
@@ -90,16 +90,16 @@ class MainActivity : AppCompatActivity() {
             update_progress_bars()
         }
 
-        val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
-        val jobInfo = JobInfo.Builder(123, ComponentName(this, DeepJobService::class.java))
-        val job = jobInfo.setRequiresCharging(false)
-//                .setMinimumLatency(1)
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-                .setPersisted(true)
-                .setPeriodic(15 * 60 * 1000)
-                .build();
-
-        jobScheduler.schedule(job)
+//        val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+//        val jobInfo = JobInfo.Builder(123, ComponentName(this, DeepJobService::class.java))
+//        val job = jobInfo.setRequiresCharging(false)
+////                .setMinimumLatency(1)
+//                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+//                .setPersisted(true)
+//                .setPeriodic(15 * 60 * 1000)
+//                .build();
+//
+//        jobScheduler.schedule(job)
 
 
 

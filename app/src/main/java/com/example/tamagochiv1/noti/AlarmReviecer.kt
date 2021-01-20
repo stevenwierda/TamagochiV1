@@ -6,6 +6,8 @@ import android.content.Intent
 import android.util.Log
 import java.util.*
 
+import com.example.tamagochiv1.noti.SharedPreference;
+
 class AlarmReviecer : BroadcastReceiver() {
 
     private val TAG = AlarmReviecer::class.java.simpleName
@@ -15,10 +17,18 @@ class AlarmReviecer : BroadcastReceiver() {
 
         if (context != null) {
             val CHANNEL_ID = "Tamagochi"
-            NotificationHelper.sendNotification(context, 300, CHANNEL_ID,"Alarm", "Alarm is gegaan", "ALARM IS AFGEGAAN", false)
+
+            // Get last count
+            var count = SharedPreference.loadData(context, "COUNT")
+            count += 1;
+            // Save current count
+            SharedPreference.saveData(context, "COUNT", count)
+
+
+            NotificationHelper.sendNotification(context, 300, CHANNEL_ID,"Alarm", "Alarm is gegaan", "ALARM ${count}x AFGEGAAN", false)
+
+            Log.d(TAG, "onReceive: " + Date().toString() + "  ,  Count: " + count)
         }
-
-
     }
 
 }

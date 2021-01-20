@@ -17,8 +17,8 @@ object AlarmScheduler {
 
         val intent = Intent(context.applicationContext, AlarmReviecer::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        Log.d(TAG, "Create: " + Date().toString())
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (second*1000), ((second*1000).toLong()), pendingIntent)
+        Log.d(TAG, "Create: " + Date().getTime())
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (second*1000), AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent)
     }
 
 
