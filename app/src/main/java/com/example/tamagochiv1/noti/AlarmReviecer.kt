@@ -24,8 +24,13 @@ class AlarmReviecer : BroadcastReceiver() {
             // Save current count
             SharedPreference.saveData(context, "COUNT", count)
 
+            // Get difference in time
+            var diff = SharedPreference.getDifferenceTime(context)
+            Log.d(TAG, "Diff in time: " + diff)
 
+            // Send notification to the user
             NotificationHelper.sendNotification(context, 300, CHANNEL_ID,"Alarm", "Alarm is gegaan", "ALARM ${count}x AFGEGAAN", false)
+            NotificationHelper.sendNotification(context, 302, CHANNEL_ID,"DIFF", "Diff in time", "Diff: ${diff}", false)
 
             Log.d(TAG, "onReceive: " + Date().toString() + "  ,  Count: " + count)
         }

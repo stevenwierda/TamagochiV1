@@ -10,10 +10,12 @@ class BootReceiver : BroadcastReceiver() {
 
     private val TAG = BootReceiver::class.java.simpleName
 
+    // When the telephone restart this code will run
     override fun onReceive(context: Context?, intent: Intent?) {
         if (context != null && intent?.action.equals("android.intent.action.BOOT_COMPLETED")) {
-            AlarmScheduler.createAlarm(context, 1)
 
+            // Start a new Alarm
+            AlarmScheduler.createAlarm(context, 1)
             Log.d(TAG, "BOOTCOMPLETE: " + Date().toString())
         }
     }

@@ -19,11 +19,20 @@ object SharedPreference {
         return preference.getInt(key, 0)
     }
 
-    fun getDifferenceTime(context: Context, key: String) : Long {
+    fun saveLastTime(context: Context, time : Long) {
+
+        val preference = context.getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+        val editor = preference.edit()
+        editor.putLong("LAST_TIME", time)
+        editor.apply()
+    }
+
+    fun getDifferenceTime(context: Context) : Long {
         val preference = context.getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
 
-        var lastTime = preference.getInt(key, 0)
+        var lastTime = preference.getLong("LAST_TIME", 0)
         var currentTime = Date().getTime()
+        saveLastTime(context, currentTime)
 
         return currentTime - lastTime
 
