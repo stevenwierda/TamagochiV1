@@ -2,6 +2,7 @@ package com.example.tamagochiv1
 
 import Pet
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Build
@@ -11,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.tamagochiv1.noti.AlarmScheduler
 import com.example.tamagochiv1.noti.NotificationHelper
@@ -53,23 +55,28 @@ class MainActivity : AppCompatActivity() {
             progress_hitpoints.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN)
 
             fun update_progress_bars () {
-                progress_happiness.setProgress(pet.getHappiness(), true)
-                progress_hunger.setProgress(pet.getHunger(), true)
-                progress_hygiene.setProgress(pet.getHygiene(), true)
-                progress_energy.setProgress(pet.getEnergy(), true)
+                progress_happiness.setProgress(pet.getHappiness().toInt(), true)
+                progress_hunger.setProgress(pet.getHunger().toInt(), true)
+                progress_hygiene.setProgress(pet.getHygiene().toInt(), true)
+                progress_energy.setProgress(pet.getEnergy().toInt(), true)
                 progress_hitpoints.setProgress(pet.getHitpoints(), true)
             }
 
             update_progress_bars();
 
             goToShowerButton.setOnClickListener {
-                val goToShower = Intent(this, Shower::class.java)
-                startActivity(goToShower)
+
+                if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), 7896)
+                } else {
+                    val goToShower = Intent(this, Shower::class.java)
+                    startActivity(goToShower)
+                }
             }
 
             goToWalkButton.setOnClickListener {
-                pet.subHygiene(10)
-                pet.subEnergy(20)
+                pet.subHygiene(10f)
+                pet.subEnergy(20f)
                 pet.addHappiness((100 - pet.getEnergy()) / 3)
                 face.setImageResource(R.drawable.petface_love)
                 update_progress_bars()
@@ -77,7 +84,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             goToFoodButton.setOnClickListener {
-                pet.addHunger(25)
+                pet.addHunger(25f)
                 pet.addHappiness((100 - pet.getHunger()) / 3)
                 face.setImageResource(R.drawable.petface_hungry)
                 saveData(pet)
@@ -97,10 +104,10 @@ class MainActivity : AppCompatActivity() {
         val saveDataMenager = SaveDataManager(this@MainActivity)
         saveDataMenager.putString("name", pet.getName())
         saveDataMenager.putString("skin", pet.getSkin())
-        saveDataMenager.putInt("happiness", pet.getHappiness())
-        saveDataMenager.putInt("hunger", pet.getHunger())
-        saveDataMenager.putInt("energy", pet.getEnergy())
-        saveDataMenager.putInt("hygiene", pet.getHygiene())
+        saveDataMenager.putFloat("happiness", pet.getHappiness())
+        saveDataMenager.putFloat("hunger", pet.getHunger())
+        saveDataMenager.putFloat("energy", pet.getEnergy())
+        saveDataMenager.putFloat("hygiene", pet.getHygiene())
         saveDataMenager.putInt("hitpoints", pet.getHitpoints())
         saveDataMenager.putBoolean("petAlive", true)
     }
@@ -111,10 +118,10 @@ class MainActivity : AppCompatActivity() {
         val saveDataMenager = SaveDataManager(this@MainActivity)
         pet.setName(saveDataMenager.getString("name").toString())
         pet.setSkin(saveDataMenager.getString("skin").toString())
-        pet.setHappyness(saveDataMenager.getInt("happyness"))
-        pet.setHunger(saveDataMenager.getInt("hunger"))
-        pet.setEnergy(saveDataMenager.getInt("energy"))
-        pet.setHygiene(saveDataMenager.getInt("hygiene"))
+        pet.setHappyness(saveDataMenager.getFloat("happyness"))
+        pet.setHunger(saveDataMenager.getFloat("hunger"))
+        pet.setEnergy(saveDataMenager.getFloat("energy"))
+        pet.setHygiene(saveDataMenager.getFloat("hygiene"))
         saveDataMenager.putInt("hitpoints", pet.getHitpoints())
         pet.setHitpoints(saveDataMenager.getInt("hitpoints"))
         return pet

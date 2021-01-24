@@ -35,7 +35,7 @@ class SaveDataManager(context: Context) {
     }
 
     fun getFloat(key: String): Float{
-        return saveData.getFloat(key, 0.0F)
+        return saveData.getFloat(key, 0.0f)
     }
 
     fun saveLastTime(time : Long) {

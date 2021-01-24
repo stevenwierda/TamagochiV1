@@ -26,10 +26,6 @@ class Shower: AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shower)
 
-        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.RECORD_AUDIO), 7896)
-        }
-
         val mainLayout = findViewById<RelativeLayout>(R.id.main)
         val sponge = findViewById<ImageView>(R.id.showerhead)
         val progressWassing = findViewById<ProgressBar>(R.id.progressbarWashing)
@@ -117,11 +113,9 @@ class Shower: AppCompatActivity()  {
                     progressDrying.progress = dryProgress
                     if (dryProgress == 100){
                         val saveData = getSharedPreferences("saveData", 0)
-                        var cleanness = saveData.getInt("hygiene",0)
-                        //var cleanness = saveDataMenager.getInt("hygiene")
+                        var cleanness = saveData.getFloat("hygiene",0f)
                         cleanness = cleanness + 100
-                        //saveDataMenager.putInt("hygiene", cleanness)
-                        saveData.edit().putInt("hygiene", cleanness).apply()
+                        saveData.edit().putFloat("hygiene", cleanness).apply()
                         val goToMain = Intent(this, MainActivity::class.java)
                         startActivity(goToMain)
                     }
