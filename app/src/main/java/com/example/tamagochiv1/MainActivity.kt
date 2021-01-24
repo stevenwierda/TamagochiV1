@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationManagerCompat
+import com.example.tamagochiv1.noti.AlarmScheduler
 import com.example.tamagochiv1.noti.NotificationHelper
 import com.example.tamagochiv1.noti.SaveDataManager
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             val pet = loadData()
             //val pet = Pet("Diezel", "jiejkl")
             NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, CHANNEL_ID, "App notification channel")
+            AlarmScheduler.createAlarm(this, 1)
 
             val goToShowerButton = findViewById<ImageButton>(R.id.goToShowerButton)
             val goToWalkButton = findViewById<ImageButton>(R.id.goToWalkButton)
@@ -66,8 +68,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             goToWalkButton.setOnClickListener {
-                val goToWalk = Intent(this, Walk::class.java)
-                startActivity(goToWalk)
+                pet.subHygiene(10)
+                pet.subEnergy(20)
+                pet.addHappiness((100 - pet.getEnergy()) / 3)
+                face.setImageResource(R.drawable.petface_love)
+                update_progress_bars()
+                saveData(pet)
             }
 
             goToFoodButton.setOnClickListener {
@@ -78,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 update_progress_bars()
                 val goToFeeding = Intent(this, Feeding::class.java)
                 startActivity(goToFeeding)
+                saveData(pet)
             }
         } else {
             val goToCreatePet = Intent(this, CreatePet::class.java)
