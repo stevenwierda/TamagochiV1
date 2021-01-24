@@ -10,8 +10,13 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.core.app.NotificationManagerCompat
+import com.example.tamagochiv1.noti.NotificationHelper
 
 class MainActivity : AppCompatActivity() {
+
+    private val CHANNEL_ID =  "Tamagochi"
+    private val notificationId = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
             val pet = loadData()
             //val pet = Pet("Diezel", "jiejkl")
+            NotificationHelper.createNotificationChannel(this, NotificationManagerCompat.IMPORTANCE_DEFAULT, false, CHANNEL_ID, "App notification channel")
 
             val goToShowerButton = findViewById<ImageButton>(R.id.goToShowerButton)
             val goToWalkButton = findViewById<ImageButton>(R.id.goToWalkButton)
