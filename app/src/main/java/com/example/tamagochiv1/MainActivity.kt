@@ -80,6 +80,8 @@ class MainActivity : AppCompatActivity() {
                 pet.addHappiness((100 - pet.getEnergy()) / 3)
                 face.setImageResource(R.drawable.petface_love)
                 update_progress_bars()
+                val goToWalk = Intent(this, Walk::class.java)
+                startActivity(goToWalk)
                 saveData(pet)
             }
 
