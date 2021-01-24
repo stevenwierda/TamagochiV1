@@ -17,10 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".DeepJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" >
-        </service>
-
 
         <!-- For retrieving the broadcast sent by the system when the alarm is triggered -->
         <receiver android:name=".noti.AlarmReviecer" />
