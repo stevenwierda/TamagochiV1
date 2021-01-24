@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
             pet.addHappiness((100 - pet.getEnergy()) / 3)
             face.setImageResource(R.drawable.petface_love)
             update_progress_bars()
+            AlarmScheduler.createAlarm(this, 1)
         }
 
 

@@ -20,11 +20,11 @@ object AlarmScheduler {
         // Create a Intent for AlarmManager
         val intent = Intent(context.applicationContext, AlarmReviecer::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        Log.d(TAG, "Create: " + Date().getTime())
+        Log.d(TAG, "Create: " + Date().getTime() / 1000)
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (second*1000), AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent)
 
         // Save lastTime
-        SharedPreference.saveLastTime(context, Date().getTime())
+        SharedPreference.saveLastTime(context, Date().getTime() / 1000)
 
     }
 

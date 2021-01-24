@@ -31,7 +31,7 @@ object SharedPreference {
         val preference = context.getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
 
         var lastTime = preference.getLong("LAST_TIME", 0)
-        var currentTime = Date().getTime()
+        var currentTime = Date().getTime()/1000
         saveLastTime(context, currentTime)
 
         return currentTime - lastTime
