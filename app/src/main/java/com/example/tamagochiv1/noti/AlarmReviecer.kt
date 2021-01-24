@@ -40,6 +40,8 @@ class AlarmReviecer : BroadcastReceiver() {
             pet.subHygiene(0f, diff)
 
             // Send notification to the user
+//            NotificationHelper.sendNotification(context, 300, CHANNEL_ID,"Alarm", "Alarm is gegaan", "ALARM ${count}x AFGEGAAN", false)
+//            NotificationHelper.sendNotification(context, 302, CHANNEL_ID,"DIFF", "Diff in time", "Diff: ${diff} sec", false)
 
             Log.d(TAG, "onReceive: " + Date().toString() + "  ,  Count: " + count)
 
