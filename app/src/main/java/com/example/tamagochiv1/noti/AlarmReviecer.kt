@@ -41,6 +41,23 @@ class AlarmReviecer : BroadcastReceiver() {
 
             // Send notification to the user
 
+            if (pet.getHappiness() < 10) {
+                NotificationHelper.sendNotification(context, 200, CHANNEL_ID, "Low happiness", "${pet.getName()} is not happy anymore gif him some attention", "Happiness is low!!", false)
+            }
+
+            if (pet.getHunger() < 10) {
+                NotificationHelper.sendNotification(context, 201, CHANNEL_ID, "Low Hunger", "${pet.getName()} is very hunger give him/her some food", "Hunger is low!!", false)
+            }
+
+            if (pet.getEnergy() < 10) {
+                NotificationHelper.sendNotification(context, 202, CHANNEL_ID, "Low Energy", "${pet.getName()} is very tired give him some sleep", "Energy is low!!", false)
+            }
+
+            if (pet.getHygiene() < 10) {
+                NotificationHelper.sendNotification(context, 203, CHANNEL_ID, "Low Hygiene", "${pet.getName()} needs to go to the shower because he/she is dirty", "Hygiene is low!!", false)
+            }
+
+
             Log.d(TAG, "onReceive: " + Date().toString() + "  ,  Count: " + count)
 
             saveData(context, pet)

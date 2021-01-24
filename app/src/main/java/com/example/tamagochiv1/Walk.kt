@@ -30,6 +30,7 @@ class Walk : AppCompatActivity() {
         var lastLocation: Location? = null
         requestPermission()
         NewLocationData()
+        LocationUpdater()
 
     }
 
