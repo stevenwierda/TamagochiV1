@@ -9,10 +9,10 @@ class Pet(name: String, skin: String) {
 
 
      private var name: String = "Name";
-     private var happiness: Int = 70;
-     private var hunger: Int = 50
-     private var energy: Int = 100;
-     private var hygiene: Int = 50;
+     private var happiness: Float = 70f
+     private var hunger: Float = 50f
+     private var energy: Float = 100f
+     private var hygiene: Float = 50f
      private var hitpoints : Int = 100;
      private var skin: String = "Boxie";
 //     private var age: null;
@@ -44,22 +44,22 @@ class Pet(name: String, skin: String) {
           this.name = name;
      }
 
-     public fun setHappyness(happiness: Int){
+     public fun setHappyness(happiness: Float){
 //          Log.d(TAG, "setHappyness(): ${happiness}")
           this.happiness = happiness
      }
 
-     public fun setHunger(hunger: Int){
+     public fun setHunger(hunger: Float){
 //          Log.d(TAG, "setHunger(): ${hunger}")
           this.hunger = hunger
      }
 
-     public fun setEnergy(energy: Int){
+     public fun setEnergy(energy: Float){
 //          Log.d(TAG, "setEnergy(): ${energy}")
           this.energy = energy
      }
 
-     public fun setHygiene(hygiene: Int){
+     public fun setHygiene(hygiene: Float){
 //          Log.d(TAG, "setHygiene(): ${hygiene}")
           this.hygiene = hygiene
      }
@@ -82,22 +82,22 @@ class Pet(name: String, skin: String) {
           return(this.name)
      }
 
-     public fun getHappiness() :Int{
+     public fun getHappiness() : Float{
 //          Log.d(TAG, "getHappiness(): ${this.happiness}")
           return (this.happiness)
      }
 
-     public fun getHunger() :Int{
+     public fun getHunger() : Float{
 //          Log.d(TAG, "getHunger(): ${this.hunger}")
           return (this.hunger)
      }
 
-     public fun getEnergy() :Int{
+     public fun getEnergy() : Float{
 //          Log.d(TAG, "getEnergy(): ${this.energy}")
           return (this.energy)
      }
 
-     public fun getHygiene() :Int{
+     public fun getHygiene() : Float{
 //          Log.d(TAG, "getHygiene(): ${this.hunger}")
           return (this.hygiene)
      }
@@ -115,39 +115,39 @@ class Pet(name: String, skin: String) {
      // --------------------------------------------------------------------- //
 // -------------------------------- ADD -------------------------------- //
 // --------------------------------------------------------------------- //
-     public fun addHappiness(add : Int) {
+     public fun addHappiness(add : Float) {
 //          Log.d(TAG, "addHappiness(): ${add}")
           if((this.happiness + add) < 100) {
                this.happiness = this.happiness + add
           } else {
-               this.happiness = 100
+               this.happiness = 100f
           }
      }
 
-     public fun addHunger (add : Int) {
+     public fun addHunger (add : Float) {
 //          Log.d(TAG, "addHunger(): ${add}")
           if((this.hunger + add) < 100) {
                this.hunger = this.hunger + add
           } else {
-               this.hunger = 100
+               this.hunger = 100f
           }
      }
 
-     public fun addEnergy (add : Int) {
+     public fun addEnergy (add : Float) {
 //          Log.d(TAG, "addEnergy(): ${add}")
           if((this.energy + add) < 100) {
                this.energy = this.energy + add
           } else {
-               this.energy = 100
+               this.energy = 100f
           }
      }
 
-     public fun addHygiene (add : Int) {
+     public fun addHygiene (add : Float) {
 //          Log.d(TAG, "addHygiene(): ${add}")
           if((this.hygiene + add) < 100) {
                this.hygiene = this.hygiene + add
           } else {
-               this.hygiene = 100
+               this.hygiene = 100f
           }
      }
 
@@ -164,7 +164,7 @@ class Pet(name: String, skin: String) {
 // -------------------------------- SUB -------------------------------- //
 // --------------------------------------------------------------------- //
 
-     public fun subHappiness(sub : Int, timeDiff : Long = 0){
+     public fun subHappiness(sub : Float, timeDiff : Long = 0){
           Log.d(TAG, "subHappiness(): ${sub} whit time: ${timeDiff}")
           if (timeDiff > 0) {
                var toSub = 100 * timeDiff / timeHappiness
@@ -173,14 +173,14 @@ class Pet(name: String, skin: String) {
                if((this.happiness - sub) > 0) {
                     this.happiness = this.happiness - sub
                } else {
-                    this.happiness = 0
+                    this.happiness = 0f
                }
           }
 
 
      }
 
-     public fun subHunger (sub : Int, timeDiff : Long = 0) {
+     public fun subHunger (sub : Float, timeDiff : Long = 0) {
           Log.d(TAG, "subHunger(): ${sub} whit time: ${timeDiff}")
           if (timeDiff > 0) {
                var toSub = 100 * timeDiff / timeHunger
@@ -189,12 +189,12 @@ class Pet(name: String, skin: String) {
                if ((this.hunger - sub) > 0) {
                     this.hunger = this.hunger - sub
                } else {
-                    this.hunger = 0
+                    this.hunger = 0f
                }
           }
      }
 
-     public fun subEnergy (sub : Int, timeDiff : Long = 0) {
+     public fun subEnergy (sub : Float, timeDiff : Long = 0) {
           Log.d(TAG, "subEnergy(): ${sub} whit time: ${timeDiff}")
           if (timeDiff > 0) {
                var toSub = 100 * timeDiff / timeEnergy
@@ -203,12 +203,12 @@ class Pet(name: String, skin: String) {
                if ((this.energy - sub) > 0) {
                     this.energy = this.energy - sub
                } else {
-                    this.energy = 0
+                    this.energy = 0f
                }
           }
      }
 
-     public fun subHygiene (sub : Int, timeDiff : Long = 0) {
+     public fun subHygiene (sub : Float, timeDiff : Long = 0) {
           Log.d(TAG, "subHygiene(): ${sub} whit time: ${timeDiff}")
           if (timeDiff > 0) {
                var toSub = 100 * timeDiff / timeHygiene
@@ -217,7 +217,7 @@ class Pet(name: String, skin: String) {
                if ((this.hygiene - sub) > 0) {
                     this.hygiene = this.hygiene - sub
                } else {
-                    this.hygiene = 0
+                    this.hygiene = 0f
                }
           }
      }
