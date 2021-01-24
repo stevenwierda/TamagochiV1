@@ -50,11 +50,15 @@ class MainActivity : AppCompatActivity() {
             progress_energy.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN)
             progress_hitpoints.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN)
 
-            progress_happiness.progress = pet.getHappiness()
-            progress_hunger.progress = pet.getHunger()
-            progress_hygiene.progress = pet.getHygiene()
-            progress_energy.progress = pet.getEnergy()
-            progress_hitpoints.progress = pet.getHitpoints()
+            fun update_progress_bars () {
+                progress_happiness.setProgress(pet.getHappiness(), true)
+                progress_hunger.setProgress(pet.getHunger(), true)
+                progress_hygiene.setProgress(pet.getHygiene(), true)
+                progress_energy.setProgress(pet.getEnergy(), true)
+                progress_hitpoints.setProgress(pet.getHitpoints(), true)
+            }
+
+            update_progress_bars();
 
             goToShowerButton.setOnClickListener {
                 val goToShower = Intent(this, Shower::class.java)

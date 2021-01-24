@@ -2,8 +2,10 @@ package com.example.tamagochiv1
 
 import Pet
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tamagochiv1.noti.SaveDataManager
 import java.io.FileOutputStream
@@ -11,6 +13,7 @@ import java.io.ObjectOutputStream
 
 
 class CreatePet: AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pet_create)
@@ -52,7 +55,7 @@ class CreatePet: AppCompatActivity() {
             val saveDataMenager = SaveDataManager(this@CreatePet)
             saveDataMenager.putString("name", pet.getName())
             saveDataMenager.putString("skin", pet.getSkin())
-            saveDataMenager.putInt("happiness", pet.getHappyness())
+            saveDataMenager.putInt("happiness", pet.getHappiness())
             saveDataMenager.putInt("hunger", pet.getHunger())
             saveDataMenager.putInt("energy", pet.getEnergy())
             saveDataMenager.putInt("hygiene", pet.getHygiene())
