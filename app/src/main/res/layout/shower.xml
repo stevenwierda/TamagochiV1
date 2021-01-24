@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/draybutton"
-        android:layout_width="124dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ProgressBar
+        android:id="@+id/progressbarDrying"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:max="100"
+        android:progress="10"
+        android:soundEffectsEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/main"
         app:layout_constraintStart_toStartOf="@+id/main"
-        app:layout_constraintTop_toBottomOf="@+id/progressbarWashing"
-        app:srcCompat="@drawable/feun" />
+        app:layout_constraintTop_toBottomOf="@+id/progressbarWashing" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -55,18 +57,34 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".MainActivity">
 
         <ImageView
             android:id="@+id/showerhead"
             android:layout_width="98dp"
             android:layout_height="104dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="255dp"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="644dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/sponge" />
+
+        <ImageView
+            android:id="@+id/draybutton"
+            android:layout_width="124dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="652dp"
+            app:srcCompat="@drawable/feun" />
 
 
     </RelativeLayout>
