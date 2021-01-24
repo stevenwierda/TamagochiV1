@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tamagochiv1.noti.SaveDataManager
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
 

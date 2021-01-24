@@ -1,7 +1,3 @@
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import com.example.tamagochiv1.CreatePet
-import com.example.tamagochiv1.SaveDataManager
 import java.io.Serializable
 
 class Pet(name: String, skin: String): Serializable{

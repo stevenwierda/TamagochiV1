@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.core.app.NotificationManagerCompat
 import com.example.tamagochiv1.noti.NotificationHelper
+import com.example.tamagochiv1.noti.SaveDataManager
 
 class MainActivity : AppCompatActivity() {
 

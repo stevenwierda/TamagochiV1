@@ -49,6 +49,16 @@
             </intent-filter>
         </activity>
 
+        <!-- For retrieving the broadcast sent by the system when the alarm is triggered -->
+        <receiver android:name=".noti.AlarmReviecer" />
+
+        <!-- For listening to device reboot to reschedule alarms -->
+        <receiver android:name=".noti.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
