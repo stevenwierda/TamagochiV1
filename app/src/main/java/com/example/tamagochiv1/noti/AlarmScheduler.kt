@@ -7,8 +7,6 @@ import android.content.Intent
 import android.util.Log
 import java.util.*
 
-import com.example.tamagochiv1.noti.SharedPreference
-
 
 object AlarmScheduler {
 

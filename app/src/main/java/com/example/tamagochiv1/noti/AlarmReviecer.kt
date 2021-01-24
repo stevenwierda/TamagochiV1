@@ -6,8 +6,6 @@ import android.content.Intent
 import android.util.Log
 import java.util.*
 
-import com.example.tamagochiv1.noti.SharedPreference;
-
 class AlarmReviecer : BroadcastReceiver() {
 
     private val TAG = AlarmReviecer::class.java.simpleName
@@ -16,16 +14,19 @@ class AlarmReviecer : BroadcastReceiver() {
         Log.d(TAG, "onReceive: " + Date().toString())
 
         if (context != null) {
+
+            val saveDataManager = SaveDataManager(context)
+
             val CHANNEL_ID = "Tamagochi"
 
             // Get last count
-            var count = SharedPreference.loadData(context, "COUNT")
+            var count = saveDataManager.getInt("COUNT")
             count += 1;
             // Save current count
-            SharedPreference.saveData(context, "COUNT", count)
+            saveDataManager.putInt("COUNT", count)
 
             // Get difference in time
-            var diff = SharedPreference.getDifferenceTime(context)
+            var diff = saveDataManager.getDifferenceTime()
             Log.d(TAG, "Diff in time: " + diff)
 
             // Send notification to the user
