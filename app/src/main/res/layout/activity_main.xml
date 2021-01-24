@@ -91,14 +91,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
-    <ProgressBar
-        android:id="@+id/progressBar10"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        app:layout_constraintStart_toStartOf="@+id/progress_hygiene"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -134,14 +126,6 @@
         android:layout_height="19dp"
         app:layout_constraintStart_toStartOf="@+id/progress_hitpoints"
         app:layout_constraintTop_toTopOf="@+id/textView6"/>
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView3"

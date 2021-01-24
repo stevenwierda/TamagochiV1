@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationManagerCompat
 import com.example.tamagochiv1.noti.NotificationHelper
 import com.example.tamagochiv1.noti.SaveDataManager
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val CHANNEL_ID =  "Tamagochi"
     private val notificationId = 101
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val saveDataMenager = SaveDataManager(this@MainActivity)
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             progress_energy.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN)
             progress_hitpoints.getProgressDrawable().setColorFilter(Color.parseColor("#64645c"), PorterDuff.Mode.SRC_IN)
 
-            progress_happiness.progress = pet.getHappyness()
+            progress_happiness.progress = pet.getHappiness()
             progress_hunger.progress = pet.getHunger()
             progress_hygiene.progress = pet.getHygiene()
             progress_energy.progress = pet.getEnergy()
@@ -65,6 +67,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             goToFoodButton.setOnClickListener {
+                pet.addHunger(25)
+                pet.addHappiness((100 - pet.getHunger()) / 3)
+                face.setImageResource(R.drawable.petface_hungry)
+                saveData(pet)
+                update_progress_bars()
                 val goToFeeding = Intent(this, Feeding::class.java)
                 startActivity(goToFeeding)
             }
@@ -74,11 +81,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun saveData(pet: Pet) {
         val saveDataMenager = SaveDataManager(this@MainActivity)
         saveDataMenager.putString("name", pet.getName())
         saveDataMenager.putString("skin", pet.getSkin())
-        saveDataMenager.putInt("happiness", pet.getHappyness())
+        saveDataMenager.putInt("happiness", pet.getHappiness())
         saveDataMenager.putInt("hunger", pet.getHunger())
         saveDataMenager.putInt("energy", pet.getEnergy())
         saveDataMenager.putInt("hygiene", pet.getHygiene())
@@ -86,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         saveDataMenager.putBoolean("petAlive", true)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun loadData(): Pet {
         val pet = Pet("bob","test")
         val saveDataMenager = SaveDataManager(this@MainActivity)
