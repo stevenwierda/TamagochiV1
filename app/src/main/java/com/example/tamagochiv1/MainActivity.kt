@@ -82,8 +82,8 @@ class MainActivity : AppCompatActivity() {
                 face.setImageResource(R.drawable.petface_hungry)
                 saveData(pet)
                 update_progress_bars()
-                val goToFeeding = Intent(this, Feeding::class.java)
-                startActivity(goToFeeding)
+                //val goToFeeding = Intent(this, Feeding::class.java)
+                //startActivity(goToFeeding)
                 saveData(pet)
             }
         } else {
