@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         pet.setHappyness(saveDataMenager.getFloat("happyness"))
         pet.setHunger(saveDataMenager.getFloat("hunger"))
         pet.setEnergy(saveDataMenager.getFloat("energy"))
-        pet.setHygiene(saveDataMenager.getFloat("hygiene"))
+        pet.setHygiene(saveDataMenager.getFloat("hygiene"))`
         saveDataMenager.putInt("hitpoints", pet.getHitpoints())
         pet.setHitpoints(saveDataMenager.getInt("hitpoints"))
         return pet

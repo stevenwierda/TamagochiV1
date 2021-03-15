@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Body"
         app:layout_constraintStart_toStartOf="@+id/Body"
         app:layout_constraintTop_toTopOf="@+id/Body"
-        app:srcCompat="@drawable/petface_fun" />
+        app:srcCompat="@drawable/petface_happy" />
 
     <ProgressBar
         android:id="@+id/progress_energy"
